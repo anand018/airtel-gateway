@@ -1,0 +1,11 @@
+spring:
+ cloud:
+   gateway:
+      routes:
+      - id: airtel_route
+        uri: http://localhost:9091
+        predicates:
+        - Path=/airtel-gateway/v1/createConnection
+        filters:
+        - StripPrefix=1
+        - PrefixPath=/airtel-connection
